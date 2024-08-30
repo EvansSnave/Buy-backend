@@ -3,7 +3,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
 import { CarsModule } from './cars/cars.module';
 
@@ -13,9 +12,6 @@ import { CarsModule } from './cars/cars.module';
       driver: ApolloDriver, 
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       playground: false,
-      plugins: [
-        ApolloServerPluginLandingPageLocalDefault()
-      ],
     }),
     CarsModule,
   ],
