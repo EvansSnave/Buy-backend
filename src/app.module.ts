@@ -3,6 +3,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { CarsModule } from './cars/cars.module';
 
@@ -12,6 +13,11 @@ import { CarsModule } from './cars/cars.module';
       driver: ApolloDriver, 
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       playground: false,
+    }),
+    TypeOrmModule.forRoot({
+      type: "sqlite",
+      database: "database.sqlite",
+      entities: [__dirname + '/**/*.entity{.ts, .js}'],
     }),
     CarsModule,
   ],
