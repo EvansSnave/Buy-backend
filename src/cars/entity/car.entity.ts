@@ -1,17 +1,18 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { IsInt, IsNotEmpty, IsString, MaxLength, Min, MinLength } from "class-validator";
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity()
 @ObjectType()
 export class Car {
-  @Field(() => Int, { description: "Car unique identifier" })
   @PrimaryGeneratedColumn()
+  @Field(() => Int, { description: "Car unique identifier" })
   @IsInt()
   @Min(1)
   id: number;
 
-  @Field(() => String, { description: "Car's name" })
   @Column()
+  @Field(() => String, { description: "Car's name" })
   @IsNotEmpty()
   @IsString()
   @MaxLength(100)

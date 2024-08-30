@@ -17,7 +17,8 @@ import { CarsModule } from './cars/cars.module';
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: "database.sqlite",
-      entities: [__dirname + '/**/*.entity{.ts, .js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
     }),
     CarsModule,
   ],
