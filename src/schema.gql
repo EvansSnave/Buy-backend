@@ -16,6 +16,9 @@ type Car {
 type Query {
   """Obtain all cars in the database"""
   getAllCars: [Car!]!
+
+  """Find one car by id"""
+  findCar(carId: Int!): Car!
 }
 
 type Mutation {

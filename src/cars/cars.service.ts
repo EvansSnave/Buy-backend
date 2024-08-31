@@ -13,6 +13,15 @@ export class CarsService {
     return this.carRepository.find();
   }
 
+  getCar(id: number): Promise<Car> {
+    try {
+      return this.carRepository.findOne({ where: { id } });
+    }
+    catch {
+      throw new NotFoundException(`Car with id = ${id} was not found`);
+    }
+  }
+
   async postCar(createCarInput: CreateCarInput): Promise<Car> {
     try {
       const newCar = new Car();
