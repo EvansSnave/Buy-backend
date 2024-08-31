@@ -10,5 +10,6 @@ services:
     ports:
       - "3000:3000"  # Map the container's port to the host (e.g., GraphQL server port)
     environment:
-      NODE_ENV: production  # Set environment variable
+      # - _APP_OPTIONS_ABUSE: disabled
+      - NODE_ENV: production  # Set environment variable
     restart: unless-stopped  # Automatically restart the container unless it is stopped manually

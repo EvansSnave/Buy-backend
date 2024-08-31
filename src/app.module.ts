@@ -11,6 +11,7 @@ import { CarsModule } from './cars/cars.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({ 
       driver: ApolloDriver, 
+      introspection: true,
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       playground: false,
     }),
