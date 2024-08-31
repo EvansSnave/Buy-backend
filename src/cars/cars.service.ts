@@ -39,8 +39,8 @@ export class CarsService {
   async updateCar({ name, price }: UpdateCarInput, carId: number): Promise<Car> {
     try {
       const carToUpdate: Car = await this.getCar(carId);
-      carToUpdate.name = name && name;
-      carToUpdate.price = price && price;
+      if (name) carToUpdate.name = name;
+      if (price) carToUpdate.price = price;
       return await this.carRepository.save(carToUpdate);
     }
     catch {
