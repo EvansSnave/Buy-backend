@@ -8,8 +8,22 @@ type Car {
 
   """Car's name"""
   name: String!
+
+  """Car price"""
+  price: Int!
 }
 
 type Query {
+  """Obtain all cars in the database"""
   getAllCars: [Car!]!
+}
+
+type Mutation {
+  """Create a new car"""
+  createCar(createCarInput: CreateCarInput!): Car!
+}
+
+input CreateCarInput {
+  name: String!
+  price: Int!
 }

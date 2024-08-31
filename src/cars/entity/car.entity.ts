@@ -18,4 +18,10 @@ export class Car {
   @MaxLength(100)
   @MinLength(3)
   name: string;
+
+  @Column()
+  @Field(() => Int, { description: "Car price" })
+  @IsInt()
+  @Min(1)
+  price: number;
 };
