@@ -1,7 +1,7 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CarsService } from './cars.service';
 import { Car } from './entity/car.entity';
-import { CreateCarInput } from './dto/inputs';
+import { CreateCarInput, UpdateCarInput } from './dto/inputs';
 
 @Resolver()
 export class CarsResolver {
@@ -21,5 +21,11 @@ export class CarsResolver {
   @Mutation(() => Car, { description: "Create a new car", name: "createCar" })
   async postCar(@Args("createCarInput", { type: () =>  CreateCarInput }) createCarInput: CreateCarInput): Promise<Car> {
     return await this.carsService.postCar(createCarInput);
+  }
+
+  @Mutation(() => Car, { description: "Provide id and properties to update in an object format", name: "updateCar" })
+  async updateCar(@Args("updateCarInput", { type: () => UpdateCarInput }) updateCarInput: UpdateCarInput, 
+                  @Args("carId", { type: () => Int }) carId: number): Promise<Car> {
+    return await this.carsService.updateCar(updateCarInput, carId);
   }
 }

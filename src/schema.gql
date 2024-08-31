@@ -24,9 +24,17 @@ type Query {
 type Mutation {
   """Create a new car"""
   createCar(createCarInput: CreateCarInput!): Car!
+
+  """Provide id and properties to update in an object format"""
+  updateCar(updateCarInput: UpdateCarInput!, carId: Int!): Car!
 }
 
 input CreateCarInput {
   name: String!
   price: Int!
+}
+
+input UpdateCarInput {
+  name: String
+  price: Int
 }
