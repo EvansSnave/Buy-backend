@@ -28,4 +28,9 @@ export class CarsResolver {
                   @Args("carId", { type: () => Int }) carId: number): Promise<Car> {
     return await this.carsService.updateCar(updateCarInput, carId);
   }
+
+  @Mutation(() => Boolean, { description: "Delete a car by id", name: "removeCar" })
+  removeCar(@Args("carId", { type: () => Int }) carId: number): Boolean {
+    return this.carsService.removeCar(carId);
+  }
 }

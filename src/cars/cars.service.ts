@@ -44,7 +44,17 @@ export class CarsService {
       return await this.carRepository.save(carToUpdate);
     }
     catch {
-      throw new BadRequestException("Something went wrong when updating");
+      throw new BadRequestException("Something went wrong when updating.");
+    }
+  }
+
+  removeCar(carId: number): Boolean {
+    try {
+      this.carRepository.delete({ id: carId });
+      return true;
+    }
+    catch {
+      throw new NotFoundException(`Car with id = ${carId} was not found.`);
     }
   }
 }

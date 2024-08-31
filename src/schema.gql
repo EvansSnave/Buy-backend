@@ -27,6 +27,9 @@ type Mutation {
 
   """Provide id and properties to update in an object format"""
   updateCar(updateCarInput: UpdateCarInput!, carId: Int!): Car!
+
+  """Delete a car by id"""
+  removeCar(carId: Int!): Boolean!
 }
 
 input CreateCarInput {
