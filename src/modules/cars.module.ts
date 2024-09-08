@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { CarsResolver } from '../resolvers/cars.resolver';
-import { CarsService } from '../services/cars.service';
+import { CarsResolver } from '../resolvers/car/cars.resolver';
+import { CarsService } from '../services/car/cars.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Car } from '../entity';
 

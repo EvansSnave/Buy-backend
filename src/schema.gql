@@ -13,6 +13,14 @@ type Car {
   price: Int!
 }
 
+type User {
+  id: Int!
+  name: String!
+
+  """User image profile path"""
+  profile: String
+}
+
 type Query {
   """Obtain all cars in the database"""
   getAllCars: [Car!]!
@@ -22,6 +30,8 @@ type Query {
 }
 
 type Mutation {
+  uploadUserProfile: User!
+
   """Create a new car"""
   createCar(createCarInput: CreateCarInput!): Car!
 
