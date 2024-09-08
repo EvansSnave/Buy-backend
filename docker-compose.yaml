@@ -1,0 +1,14 @@
+version: '3.8'  # Specify the Docker Compose version
+
+services:
+  app:
+    image: buy-backend  # Replace with the name of your Docker image
+    container_name: nestjs-app
+    build:
+      context: .  # Assuming Dockerfile is in the same directory as docker-compose.yml
+      dockerfile: Dockerfile  # Path to your Dockerfile
+    ports:
+      - "3000:3000"  # Map the container's port to the host (e.g., GraphQL server port)
+    environment:
+      NODE_ENV: production  # Set environment variable
+    restart: unless-stopped  # Automatically restart the container unless it is stopped manually

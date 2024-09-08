@@ -1,0 +1,8 @@
+node_modules
+build
+dist
+.git
+.vscode
+Dockerfile
+docker-compose.yml
+*.md

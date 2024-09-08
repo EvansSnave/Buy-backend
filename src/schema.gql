@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Car {
+  """Car unique identifier"""
+  id: Int!
+
+  """Car's name"""
+  name: String!
+
+  """Car price"""
+  price: Int!
+}
+
+type Query {
+  """Obtain all cars in the database"""
+  getAllCars: [Car!]!
+
+  """Find one car by id"""
+  findCar(carId: Int!): Car!
+}
+
+type Mutation {
+  """Create a new car"""
+  createCar(createCarInput: CreateCarInput!): Car!
+
+  """Provide id and properties to update in an object format"""
+  updateCar(updateCarInput: UpdateCarInput!, carId: Int!): Car!
+
+  """Delete a car by id"""
+  removeCar(carId: Int!): Boolean!
+}
+
+input CreateCarInput {
+  name: String!
+  price: Int!
+}
+
+input UpdateCarInput {
+  name: String
+  price: Int
+}
