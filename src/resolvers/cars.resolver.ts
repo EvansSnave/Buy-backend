@@ -1,9 +1,9 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CarsService } from './cars.service';
-import { Car } from './entity';
-import { CreateCarInput, UpdateCarInput } from './dto/inputs';
+import { CarsService } from '../services/cars.service';
+import { Car } from '../entity';
+import { CreateCarInput, UpdateCarInput } from '../dto/inputs';
 
-@Resolver()
+@Resolver(() => Car)
 export class CarsResolver {
 
   constructor (private readonly carsService: CarsService) {}
