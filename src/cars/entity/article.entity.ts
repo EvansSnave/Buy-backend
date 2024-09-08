@@ -1,6 +1,8 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { IsInt, Min } from "class-validator";
 import { Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Label } from "./label.entity";
+import { User } from "./user.entity";
 
 @Entity()
 @ObjectType()
@@ -11,15 +13,15 @@ export class Article {
   @Min(1)
   id: number;
 
-  image: string;
+  thumbnail: string;
 
-  labels: string[];
+  labels: Label[];
 
   date: Date;
 
   title: string;
 
-  author: string;
+  author: User;
 
   article: string;
 }

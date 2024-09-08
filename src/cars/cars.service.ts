@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Car } from './entity/car.entity';
+import { Car } from './entity';
 import { Repository } from 'typeorm';
 import { CreateCarInput, UpdateCarInput } from './dto/inputs';
 
