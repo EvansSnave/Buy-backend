@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CarsResolver } from './cars.resolver';
-import { CarsService } from './cars.service';
+import { CarsResolver } from 'src/resolvers/cars.resolver';
+import { CarsService } from 'src/services/cars.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Car } from './entity/car.entity';
+import { Car } from 'src/entities';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Car])],

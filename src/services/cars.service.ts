@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Car } from './entity/car.entity';
+import { Car } from 'src/entities';
 import { Repository } from 'typeorm';
-import { CreateCarInput, UpdateCarInput } from './dto/inputs';
+import { CreateCarInput, UpdateCarInput } from 'src/dto/inputs';
 
 @Injectable()
 export class CarsService {

@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { CarsModule } from './cars/cars.module';
+import { CarsModule } from './modules/cars.module';
 
 @Module({
   imports: [
