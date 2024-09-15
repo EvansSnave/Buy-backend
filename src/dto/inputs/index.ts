@@ -1,2 +1,2 @@
-export { UpdateCarInput } from "./update-car.input";
-export { CreateCarInput } from "./create-car.input";
+export { UpdateCarInput } from "./cars/update-car.input";
+export { CreateCarInput } from "./cars/create-car.input";

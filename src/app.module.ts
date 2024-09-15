@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { CarsModule } from './modules/cars.module';
+import { CarsModule, UserModule } from './modules';
 
 @Module({
   imports: [
@@ -22,6 +22,7 @@ import { CarsModule } from './modules/cars.module';
       synchronize: true,
     }),
     CarsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
