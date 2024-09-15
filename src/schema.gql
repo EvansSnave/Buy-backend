@@ -18,7 +18,7 @@ type User {
   name: String!
 
   """User image profile path"""
-  profile: String
+  profile: String!
 }
 
 type Query {
@@ -30,8 +30,6 @@ type Query {
 }
 
 type Mutation {
-  uploadUserProfile: User!
-
   """Create a new car"""
   createCar(createCarInput: CreateCarInput!): Car!
 
@@ -40,6 +38,7 @@ type Mutation {
 
   """Delete a car by id"""
   removeCar(carId: Int!): Boolean!
+  createUser(createUserInput: CreateUserInput!): User!
 }
 
 input CreateCarInput {
@@ -51,3 +50,11 @@ input UpdateCarInput {
   name: String
   price: Int
 }
+
+input CreateUserInput {
+  name: String!
+  profile: Upload!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

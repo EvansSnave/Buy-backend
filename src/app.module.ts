@@ -6,8 +6,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { CarsModule } from './modules/cars.module';
-import { UserResolver } from './resolvers/user/user.resolver';
-import { UserService } from './services/user/user.service';
+import { UserModule } from './modules/user.module';
+import { GraphQLUpload } from 'graphql-upload';
 
 @Module({
   imports: [
@@ -16,6 +16,7 @@ import { UserService } from './services/user/user.service';
       introspection: true,
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       playground: false,
+      csrfPrevention: false,
     }),
     TypeOrmModule.forRoot({
       type: "sqlite",
@@ -24,8 +25,15 @@ import { UserService } from './services/user/user.service';
       synchronize: true,
     }),
     CarsModule,
+    UserModule
   ],
   controllers: [AppController],
-  providers: [AppService, UserResolver, UserService],
+  providers: [
+    AppService,
+    {
+      provide: 'UPLOAD_SCALAR',
+      useValue: GraphQLUpload, 
+    }
+  ],
 })
 export class AppModule {}

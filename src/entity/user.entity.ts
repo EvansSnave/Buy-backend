@@ -19,8 +19,7 @@ export class User {
   @MinLength(4)
   name: string;
 
-  @Column({ nullable: true })
-  @Field(() => String, { nullable: true, description: "User image profile path" })
-  @IsString()
-  profile?: string;
+  @Column()
+  @Field(() => String, { description: "User image profile path" })
+  profile: string;
 }
